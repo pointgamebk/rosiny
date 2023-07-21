@@ -19,10 +19,10 @@ const User = g
 // @ts-ignore
 const Press = g
   .model("Press", {
+    type: g.string(),
     strain: g.string().length({ min: 3 }),
-    category: g.string().search(),
     image: g.url(),
-    description: g.string().optional(),
+    notes: g.string().optional(),
     createdBy: g.relation(() => User),
   })
   .auth((rules) => {

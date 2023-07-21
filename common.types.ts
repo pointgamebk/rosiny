@@ -1,21 +1,17 @@
 import { User, Session } from "next-auth";
 
 export type FormState = {
-  title: string;
-  description: string;
+  type: string;
+  strain: string;
   image: string;
-  liveSiteUrl: string;
-  githubUrl: string;
-  category: string;
+  notes: string;
 };
 
-export interface ProjectInterface {
-  title: string;
-  description: string;
+export interface PressInterface {
+  type: string;
+  strain: string;
   image: string;
-  liveSiteUrl: string;
-  githubUrl: string;
-  category: string;
+  notes: string;
   id: string;
   createdBy: {
     name: string;
@@ -31,10 +27,8 @@ export interface UserProfile {
   email: string;
   description: string | null;
   avatarUrl: string;
-  githubUrl: string | null;
-  linkedinUrl: string | null;
-  projects: {
-    edges: { node: ProjectInterface }[];
+  presses: {
+    edges: { node: PressInterface }[];
     pageInfo: {
       hasPreviousPage: boolean;
       hasNextPage: boolean;
@@ -53,11 +47,9 @@ export interface SessionInterface extends Session {
   };
 }
 
-export interface ProjectForm {
-  title: string;
-  description: string;
+export interface PressForm {
+  type: string;
+  strain: string;
   image: string;
-  liveSiteUrl: string;
-  githubUrl: string;
-  category: string;
+  notes: string;
 }

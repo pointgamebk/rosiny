@@ -6,21 +6,9 @@ export const NavLinks = [
   { href: "/", key: "Hire Developers", text: "Hire Developers" },
 ];
 
-export const categoryFilters = [
-  "Frontend",
-  "Backend",
-  "Full-Stack",
-  "Mobile",
-  "UI/UX",
-  "Game Dev",
-  "DevOps",
-  "Data Science",
-  "Machine Learning",
-  "Cybersecurity",
-  "Blockchain",
-  "E-commerce",
-  "Chatbots",
-];
+export const typeFilters = ["Flower", "Hash"];
+
+export const strainFilters = ["Golden Goat", "Purple Haze", "Pink Runtz"];
 
 export const footerLinks = [
   {

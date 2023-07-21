@@ -23,3 +23,20 @@ export const createUserMutation = `
         }
     }
 `;
+
+export const createPressMutation = `
+	mutation CreatePress($input: PressCreateInput!) {
+		pressCreate(input: $input) {
+			press {
+				id
+				type
+				strain
+                notes
+				createdBy {
+					email
+					name
+				}
+			}
+		}
+	}
+`;
