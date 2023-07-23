@@ -25,7 +25,6 @@ export interface UserProfile {
   id: string;
   name: string;
   email: string;
-  description: string | null;
   avatarUrl: string;
   presses: {
     edges: { node: PressInterface }[];

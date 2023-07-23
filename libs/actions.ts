@@ -2,7 +2,10 @@ import { PressForm } from "@/common.types";
 import {
   createPressMutation,
   createUserMutation,
+  getPressByIdQuery,
+  getPressesOfUserQuery,
   getUserQuery,
+  pressesQuery,
 } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
 
@@ -91,4 +94,20 @@ export const createNewPress = async (
     };
     return makeGraphQLRequest(createPressMutation, variables);
   }
+};
+
+export const fetchAllPresses = async () => {
+  client.setHeader("x-api-key", apiKey);
+
+  return makeGraphQLRequest(pressesQuery);
+};
+
+export const getPressDetails = (id: string) => {
+  client.setHeader("x-api-key", apiKey);
+  return makeGraphQLRequest(getPressByIdQuery, { id });
+};
+
+export const getUserPresses = (id: string, last?: number) => {
+  client.setHeader("x-api-key", apiKey);
+  return makeGraphQLRequest(getPressesOfUserQuery, { id, last });
 };
