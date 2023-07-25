@@ -66,21 +66,27 @@ export const deletePressMutation = `
   }
 `;
 
-export const pressesQuery = `
-  query GetPresses {
-    pressCollection(first: 10) {
+export const pressQuery = `
+  query getPresses($type: String = "Hash", $endCursor: String) {
+    pressSearch(first: 8, after: $endCursor, filter: {type: {eq: $type}}) {
+      pageInfo {
+        hasNextPage
+        hasPreviousPage
+        startCursor
+        endCursor
+      }
       edges {
         node {
           id
           type
           strain
-          notes
           image
+          notes
           createdBy {
             id
+            email
             name
             avatarUrl
-            email
           }
         }
       }
@@ -109,34 +115,6 @@ export const pressesByType = `
   }
   }
 `;
-
-// export const pressesQuery = `
-//   query getPresses($type: String, $endcursor: String) {
-//     pressSearch(first: 8, after: $endcursor, filter: {type: {eq: $type}}) {
-//       pageInfo {
-//         hasNextPage
-//         hasPreviousPage
-//         startCursor
-//         endCursor
-//       }
-//       edges {
-//         node {
-//           id
-//           type
-//           strain
-//           notes
-//           image
-//           createdBy {
-//             id
-//             email
-//             name
-//             avatarUrl
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
 
 export const getPressByIdQuery = `
   query GetPressById($id: ID!) {

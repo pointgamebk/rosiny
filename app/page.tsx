@@ -1,7 +1,8 @@
 import { PressInterface } from "@/common.types";
 import Types from "@/components/Types";
 import PressCard from "@/components/PressCard";
-import { fetchAllPresses, fetchPressesByType } from "@/libs/actions";
+import { fetchPresses } from "@/libs/actions";
+import LoadMore from "@/components/LoadMore";
 
 type SearchParams = {
   type?: string;
@@ -13,7 +14,7 @@ type Props = {
 };
 
 type PressSearch = {
-  pressCollection: {
+  pressSearch: {
     edges: { node: PressInterface }[];
     pageInfo: {
       hasPreviousPage: boolean;
@@ -24,21 +25,27 @@ type PressSearch = {
   };
 };
 
-const Home = async () => {
-  const data = (await fetchAllPresses()) as PressSearch;
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+export const revalidate = 0;
 
-  const pressesToDisplay = data?.pressCollection?.edges || [];
+const Home = async ({ searchParams: { type, endcursor } }: Props) => {
+  const data = (await fetchPresses(type, endcursor)) as PressSearch;
+
+  const pressesToDisplay = data?.pressSearch?.edges || [];
 
   if (pressesToDisplay.length === 0) {
     return (
       <section className="flexStart flex-col text-center">
-        Categories
+        <Types />
         <p className="no-result-text text-center">
           No presses found. Go make some rosin.
         </p>
       </section>
     );
   }
+
+  const pagination = data?.pressSearch?.pageInfo;
 
   return (
     <section className="flex-start flex-col paddings mb-16">
@@ -57,7 +64,12 @@ const Home = async () => {
           />
         ))}
       </section>
-      <h1>Load More</h1>
+      <LoadMore
+        startCursor={pagination.startCursor}
+        endCursor={pagination.endCursor}
+        hasPreviousPage={pagination.hasPreviousPage}
+        hasNextPage={pagination.hasNextPage}
+      />
     </section>
   );
 };

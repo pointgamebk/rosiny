@@ -7,7 +7,7 @@ import {
   getPressesOfUserQuery,
   getUserQuery,
   pressesByType,
-  pressesQuery,
+  pressQuery,
   updatePressMutation,
 } from "@/graphql";
 import { GraphQLClient } from "graphql-request";
@@ -99,10 +99,10 @@ export const createNewPress = async (
   }
 };
 
-export const fetchAllPresses = async () => {
+export const fetchPresses = async (type?: string, endCursor?: string) => {
   client.setHeader("x-api-key", apiKey);
 
-  return makeGraphQLRequest(pressesQuery);
+  return makeGraphQLRequest(pressQuery, { type, endCursor });
 };
 
 export const fetchPressesByType = async (type: string) => {
