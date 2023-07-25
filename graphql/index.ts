@@ -67,26 +67,76 @@ export const deletePressMutation = `
 `;
 
 export const pressesQuery = `
-  query GetPresses() {
-    pressCollection (last: 10) {
-      pageInfo {
-        endCursor
-      }
+  query GetPresses {
+    pressCollection(first: 10) {
       edges {
         node {
           id
           type
           strain
-          image
           notes
+          image
           createdBy {
+            id
             name
+            avatarUrl
+            email
           }
         }
       }
     }
   }
 `;
+
+export const pressesByType = `
+  query GetPressesByType($type: String) {
+    pressSearch(first: 10, filter: {type: {eq: $type}}) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        type
+        strain
+        image
+        notes
+        id
+      }
+    }
+  }
+  }
+`;
+
+// export const pressesQuery = `
+//   query getPresses($type: String, $endcursor: String) {
+//     pressSearch(first: 8, after: $endcursor, filter: {type: {eq: $type}}) {
+//       pageInfo {
+//         hasNextPage
+//         hasPreviousPage
+//         startCursor
+//         endCursor
+//       }
+//       edges {
+//         node {
+//           id
+//           type
+//           strain
+//           notes
+//           image
+//           createdBy {
+//             id
+//             email
+//             name
+//             avatarUrl
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export const getPressByIdQuery = `
   query GetPressById($id: ID!) {

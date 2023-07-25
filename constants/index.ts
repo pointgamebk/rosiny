@@ -1,9 +1,12 @@
 export const NavLinks = [
-  { href: "/", key: "Inspiration", text: "Inspiration" },
-  { href: "/", key: "Find Projects", text: "Find Projects" },
-  { href: "/", key: "Learn Development", text: "Learn Development" },
-  { href: "/", key: "Career Advancement", text: "Career Advancement" },
-  { href: "/", key: "Hire Developers", text: "Hire Developers" },
+  { href: "/", key: "Getting Started", text: "Getting Started" },
+  { href: "/", key: "Find Presses", text: "Find Presses" },
+  {
+    href: "/",
+    key: "Learn about Rosin Pressing",
+    text: "Learn about Rosin Pressing",
+  },
+  { href: "/", key: "Producer Inquiries", text: "Producer Inquiries" },
 ];
 
 export const typeFilters = ["Flower", "Hash"];

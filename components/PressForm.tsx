@@ -1,8 +1,8 @@
 "use client";
 
-import { SessionInterface } from "@/common.types";
+import { PressInterface, SessionInterface } from "@/common.types";
 import { typeFilters } from "@/constants";
-import { createNewPress, fetchToken } from "@/libs/actions";
+import { createNewPress, fetchToken, updatePress } from "@/libs/actions";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useState } from "react";
@@ -13,9 +13,10 @@ import FormField from "./FormField";
 type Props = {
   type: string;
   session: SessionInterface;
+  press: PressInterface;
 };
 
-const PressForm = ({ type, session }: Props) => {
+const PressForm = ({ type, session, press }: Props) => {
   const router = useRouter();
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -27,6 +28,12 @@ const PressForm = ({ type, session }: Props) => {
     try {
       if (type === "submit") {
         await createNewPress(form, session?.user?.id, token);
+
+        router.push("/");
+      }
+
+      if (type === "edit") {
+        await updatePress(form, press?.id as string, token);
 
         router.push("/");
       }
@@ -65,10 +72,10 @@ const PressForm = ({ type, session }: Props) => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
-    type: "",
-    strain: "",
-    image: "",
-    notes: "",
+    type: press?.type || "",
+    strain: press?.strain || "",
+    image: press?.image || "",
+    notes: press?.notes || "",
   });
   return (
     <form onSubmit={handleFormSubmit} className="flexStart form">

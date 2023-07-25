@@ -1,6 +1,16 @@
 import { PressInterface } from "@/common.types";
+import Types from "@/components/Types";
 import PressCard from "@/components/PressCard";
-import { fetchAllPresses } from "@/libs/actions";
+import { fetchAllPresses, fetchPressesByType } from "@/libs/actions";
+
+type SearchParams = {
+  type?: string;
+  endcursor?: string;
+};
+
+type Props = {
+  searchParams: SearchParams;
+};
 
 type PressSearch = {
   pressCollection: {
@@ -24,7 +34,7 @@ const Home = async () => {
       <section className="flexStart flex-col text-center">
         Categories
         <p className="no-result-text text-center">
-          No presses found. Go make rosin.
+          No presses found. Go make some rosin.
         </p>
       </section>
     );
@@ -32,7 +42,7 @@ const Home = async () => {
 
   return (
     <section className="flex-start flex-col paddings mb-16">
-      <h1>Categories</h1>
+      <Types />
       <section className="projects-grid">
         {pressesToDisplay.map(({ node }: { node: PressInterface }) => (
           <PressCard

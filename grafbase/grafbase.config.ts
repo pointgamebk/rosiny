@@ -25,6 +25,7 @@ const Press = g
     notes: g.string().optional(),
     createdBy: g.relation(() => User),
   })
+  .search()
   .auth((rules) => {
     rules.public().read(), rules.private().create().delete().update();
   });
