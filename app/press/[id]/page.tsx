@@ -65,6 +65,15 @@ const Press = async ({ params: { id } }: { params: { id: string } }) => {
 
       <section className="flexCenter flex-col mt-20">
         <p className="max-w-5xl text-xl font-normal">{pressDetails?.notes}</p>
+        <p className="max-w-5xl text-xl font-normal">
+          Temp: {pressDetails?.temp}
+        </p>
+        <p className="max-w-5xl text-xl font-normal">
+          Time: {pressDetails?.time} seconds
+        </p>
+        <p className="max-w-5xl text-xl font-normal">
+          Pressure: {pressDetails?.pressure} psi
+        </p>
       </section>
 
       <RelatedPresses

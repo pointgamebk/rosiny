@@ -13,6 +13,9 @@ export interface PressInterface {
   image: string;
   notes: string;
   id: string;
+  time?: string;
+  temp?: string;
+  pressure?: string;
   createdBy: {
     name: string;
     email: string;
@@ -51,4 +54,6 @@ export interface PressForm {
   strain: string;
   image: string;
   notes: string;
+  time?: string;
+  temp?: string;
 }

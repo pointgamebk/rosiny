@@ -76,6 +76,9 @@ const PressForm = ({ type, session, press }: Props) => {
     strain: press?.strain || "",
     image: press?.image || "",
     notes: press?.notes || "",
+    time: press?.time || "",
+    temp: press?.temp || "",
+    pressure: press?.pressure || "",
   });
   return (
     <form onSubmit={handleFormSubmit} className="flexStart form">
@@ -113,6 +116,27 @@ const PressForm = ({ type, session, press }: Props) => {
         state={form.strain}
         placeholder="Enter the strain being pressed"
         setState={(value) => handleStateChange("strain", value)}
+      />
+
+      <FormField
+        title="Temperature"
+        state={form.temp}
+        placeholder="Enter the temperature used for the press"
+        setState={(value) => handleStateChange("temp", value)}
+      />
+
+      <FormField
+        title="Pressure"
+        state={form.pressure}
+        placeholder="Enter the amount of pressure used (units in psi)"
+        setState={(value) => handleStateChange("pressure", value)}
+      />
+
+      <FormField
+        title="Time"
+        state={form.time}
+        placeholder="Enter how long you pressed for (in seconds)"
+        setState={(value) => handleStateChange("time", value)}
       />
 
       <FormField

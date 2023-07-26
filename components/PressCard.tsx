@@ -7,6 +7,9 @@ type Props = {
   type: string;
   name: string;
   strain: string;
+  temp?: string;
+  time?: string;
+  pressure?: string;
   avatarUrl: string;
   userId: string;
 };
@@ -17,6 +20,9 @@ const PressCard = ({
   type,
   strain,
   name,
+  temp,
+  time,
+  pressure,
   avatarUrl,
   userId,
 }: Props) => {

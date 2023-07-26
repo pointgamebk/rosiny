@@ -32,6 +32,9 @@ export const createPressMutation = `
 				type
 				strain
         notes
+        time
+        temp
+        pressure
 				createdBy {
 					email
 					name
@@ -49,6 +52,9 @@ export const updatePressMutation = `
 				type
         strain
 				notes
+        time
+        temp
+        pressure
 				createdBy {
 					email
 					name
@@ -82,6 +88,9 @@ export const pressQuery = `
           strain
           image
           notes
+          temp
+          time
+          pressure
           createdBy {
             id
             email
@@ -124,6 +133,9 @@ export const getPressByIdQuery = `
       strain
       notes
       image
+      time
+      temp
+      pressure
       createdBy {
         id
         name

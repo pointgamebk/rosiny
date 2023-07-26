@@ -23,6 +23,9 @@ const Press = g
     strain: g.string().length({ min: 3 }),
     image: g.url(),
     notes: g.string().optional(),
+    time: g.string().optional(),
+    temp: g.string().optional(),
+    pressure: g.string().optional(),
     createdBy: g.relation(() => User),
   })
   .search()
