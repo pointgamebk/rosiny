@@ -19,6 +19,7 @@ module.exports = {
         "gray-100": "#3d3d4e",
         "black-100": "#252525",
         "primary-purple": "#9747FF",
+        "primary-green": "#2B4F38",
         "gray-50": "#D9D9D9",
       },
       boxShadow: {

@@ -24,7 +24,7 @@ const RelatedPresses = async ({ userId, pressId }: Props) => {
         <p className="text-base font-bold">More by {result?.user?.name}</p>
         <Link
           href={`/profile/${result?.user?.id}`}
-          className="text-primary-purple text-base"
+          className="text-primary-green text-base"
         >
           View All
         </Link>

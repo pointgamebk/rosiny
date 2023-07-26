@@ -38,7 +38,7 @@ const PressActions = ({ pressId }: { pressId: string }) => {
         type="button"
         disabled={isDeleting}
         className={`flexCenter delete-action_btn ${
-          isDeleting ? "bg-gray" : "bg-primary-purple"
+          isDeleting ? "bg-gray" : "bg-primary-green"
         }`}
         onClick={handleDeletePress}
       >

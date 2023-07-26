@@ -13,7 +13,7 @@ import FormField from "./FormField";
 type Props = {
   type: string;
   session: SessionInterface;
-  press: PressInterface;
+  press?: PressInterface;
 };
 
 const PressForm = ({ type, session, press }: Props) => {
