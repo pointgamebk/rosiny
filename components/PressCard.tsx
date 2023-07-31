@@ -27,10 +27,10 @@ const PressCard = ({
   userId,
 }: Props) => {
   return (
-    <div className="flexCenter flex-col rounded-2xl drop-shadow-card">
+    <div className="flexCenter flex-col rounded-2xl drop-shadow-card ">
       <Link
         href={`/press/${id}`}
-        className="flexCenter group relative w-full h-full"
+        className="flexCenter group relative w-full h-full border-white border rounded-2xl"
       >
         <Image
           src={image}
@@ -47,7 +47,7 @@ const PressCard = ({
         </div>
       </Link>
 
-      <div className="flexBetween w-full px-2 mt-3 font-semibold text-sm">
+      <div className="flexBetween w-full px-2 mt-3 font-semibold text-sm text-white">
         <Link href={`/profile/${userId}`}>
           <div className="flexCenter gap-2">
             <Image

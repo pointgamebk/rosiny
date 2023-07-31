@@ -26,11 +26,11 @@ const Button = ({
     <button
       type={type || "button"}
       disabled={isSubmitting}
-      className={`flexCenter gap-3 px-4 py-3
+      className={`flexCenter gap-3 px-4 py-3 
       ${textColor || "text-white"}
       ${
         isSubmitting ? "bg-black/50" : bgColor || "bg-primary-green"
-      } rounded-xl tex-sm font-medium max-md:w-full
+      } rounded-xl border-white border-2 tex-sm font-medium max-md:w-full 
       `}
       onClick={handleClick}
     >

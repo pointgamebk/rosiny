@@ -11,7 +11,7 @@ const CreatePress = async () => {
 
   return (
     <Modal>
-      <h3 className="modal-head-text">Add a new press</h3>
+      <h3 className="modal-head-text text-white">Add a new press</h3>
 
       <PressForm type="submit" session={session} />
     </Modal>

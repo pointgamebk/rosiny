@@ -16,6 +16,8 @@ export interface PressInterface {
   time?: string;
   temp?: string;
   pressure?: string;
+  preWeight?: number;
+  postWeight?: number;
   createdBy: {
     name: string;
     email: string;
@@ -29,6 +31,7 @@ export interface UserProfile {
   name: string;
   email: string;
   avatarUrl: string;
+  zip?: string;
   presses: {
     edges: { node: PressInterface }[];
     pageInfo: {
@@ -56,4 +59,6 @@ export interface PressForm {
   notes: string;
   time?: string;
   temp?: string;
+  preWeight?: number;
+  postWeight?: number;
 }

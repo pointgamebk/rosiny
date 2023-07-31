@@ -35,6 +35,8 @@ export const createPressMutation = `
         time
         temp
         pressure
+        preWeight
+        postWeight
 				createdBy {
 					email
 					name
@@ -74,7 +76,7 @@ export const deletePressMutation = `
 
 export const pressQuery = `
   query getPresses($type: String = "Hash", $endCursor: String) {
-    pressSearch(first: 8, after: $endCursor, filter: {type: {eq: $type}}) {
+    pressSearch(first: 4, after: $endCursor, filter: {type: {eq: $type}}) {
       pageInfo {
         hasNextPage
         hasPreviousPage
@@ -91,6 +93,8 @@ export const pressQuery = `
           temp
           time
           pressure
+          preWeight
+          postWeight
           createdBy {
             id
             email
@@ -136,6 +140,8 @@ export const getPressByIdQuery = `
       time
       temp
       pressure
+      preWeight
+      postWeight
       createdBy {
         id
         name

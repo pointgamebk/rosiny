@@ -70,6 +70,10 @@ const PressForm = ({ type, session, press }: Props) => {
     setForm((prevState) => ({ ...prevState, [fieldName]: value }));
   };
 
+  const handleIntStateChange = (fieldName: string, value: number) => {
+    setForm((prevState) => ({ ...prevState, [fieldName]: value }));
+  };
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     type: press?.type || "",
@@ -79,9 +83,11 @@ const PressForm = ({ type, session, press }: Props) => {
     time: press?.time || "",
     temp: press?.temp || "",
     pressure: press?.pressure || "",
+    preWeight: press?.pressure || 0,
+    postWeight: press?.pressure || 0,
   });
   return (
-    <form onSubmit={handleFormSubmit} className="flexStart form">
+    <form onSubmit={handleFormSubmit} className="flexStart form ">
       <div className="flexStart form_image-container">
         <label htmlFor="poster" className="flexCenter form_image-label">
           {!form.image && "Choose a photo of your press"}
@@ -114,35 +120,51 @@ const PressForm = ({ type, session, press }: Props) => {
       <FormField
         title="Strain"
         state={form.strain}
-        placeholder="Enter the strain being pressed"
+        placeholder="What strain was the material you pressed?"
         setState={(value) => handleStateChange("strain", value)}
       />
 
       <FormField
         title="Temperature"
         state={form.temp}
-        placeholder="Enter the temperature used for the press"
+        placeholder="What temperature did you use? (farenheit)?"
         setState={(value) => handleStateChange("temp", value)}
       />
 
       <FormField
         title="Pressure"
         state={form.pressure}
-        placeholder="Enter the amount of pressure used (units in psi)"
+        placeholder="How much pressure did you use (psi)"
         setState={(value) => handleStateChange("pressure", value)}
       />
 
       <FormField
         title="Time"
         state={form.time}
-        placeholder="Enter how long you pressed for (in seconds)"
+        placeholder="How long did you press for (seconds)?"
         setState={(value) => handleStateChange("time", value)}
+      />
+
+      <FormField
+        title="Starting weight"
+        state={form.preWeight}
+        placeholder="How much material did you press (in grams)?"
+        setState={(value) => handleIntStateChange("preWeight", parseInt(value))}
+      />
+
+      <FormField
+        title="Final weight"
+        state={form.postWeight}
+        placeholder="How much rosin did you collect (in grams)?"
+        setState={(value) =>
+          handleIntStateChange("postWeight", parseInt(value))
+        }
       />
 
       <FormField
         title="Notes"
         state={form.notes}
-        placeholder="Additional notes"
+        placeholder="Any notes to add?"
         setState={(value) => handleStateChange("notes", value)}
       />
 

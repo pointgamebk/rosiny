@@ -13,7 +13,7 @@ const Navbar = async () => {
         <Link href="/">
           <Image src="/logo1.svg" width={115} height={43} alt="rosiny" />
         </Link>
-        <ul className="xl:flex hidden text-small gap-7">
+        <ul className="xl:flex hidden text-small gap-7 text-white">
           {NavLinks.map((link) => (
             <Link href={link.href} key={link.key}>
               {link.text}
@@ -26,7 +26,9 @@ const Navbar = async () => {
           <>
             <ProfileMenu session={session} />
 
-            <Link href="/create-press">Share Press</Link>
+            <Link href="/create-press" className="text-white">
+              Share Press
+            </Link>
           </>
         ) : (
           <AuthProviders />

@@ -11,7 +11,7 @@ type Props = {
 const CustomMenu = ({ title, state, filters, setState }: Props) => {
   return (
     <div className="flexStart flex-col w-full gap-7 relative">
-      <label htmlFor={title} className="w-full text-gray-100">
+      <label htmlFor={title} className="w-full text-white">
         {title}
       </label>
       <Menu as="div" className="self-start relative">

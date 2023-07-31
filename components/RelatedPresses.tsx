@@ -19,12 +19,12 @@ const RelatedPresses = async ({ userId, pressId }: Props) => {
   if (filteredPresses?.length === 0) return null;
 
   return (
-    <section className="flex flex-col mt-32 w-full">
+    <section className="flex flex-col mt-32 w-full text-white">
       <div className="flexBetween">
         <p className="text-base font-bold">More by {result?.user?.name}</p>
         <Link
           href={`/profile/${result?.user?.id}`}
-          className="text-primary-green text-base"
+          className="text-white text-base"
         >
           View All
         </Link>
@@ -41,7 +41,7 @@ const RelatedPresses = async ({ userId, pressId }: Props) => {
                 src={node?.image}
                 width={414}
                 height={314}
-                className="w-full h-full object-cover rounded-2xl"
+                className="w-full h-full object-cover rounded-2xl border-white border"
                 alt="press image"
               />
 

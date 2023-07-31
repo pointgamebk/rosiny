@@ -21,6 +21,9 @@ module.exports = {
         "primary-purple": "#9747FF",
         "primary-green": "#2B4F38",
         "gray-50": "#D9D9D9",
+        green: "#2B4F38",
+        purp: "#614344",
+        "light-purp": "#9F87AF",
       },
       boxShadow: {
         menu: "0px 159px 95px rgba(13,12,34,0.01), 0px 71px 71px rgba(13,12,34,0.02), 0px 18px 39px rgba(13,12,34,0.02), 0px 0px 0px rgba(13,12,34,0.02)",

@@ -10,7 +10,7 @@ type Props = {
 };
 
 const ProfilePage = ({ user }: Props) => (
-  <section className="flexCenter flex-col max-w-10xl w-full mx-auto paddings">
+  <section className="flexCenter flex-col max-w-10xl w-full mx-auto paddings text-white">
     <section className="flexBetween max-lg:flex-col gap-10 w-full">
       <div className="flex items-start flex-col w-full">
         <Image
@@ -44,7 +44,7 @@ const ProfilePage = ({ user }: Props) => (
           alt="project image"
           width={739}
           height={554}
-          className="rounded-xl object-contain"
+          className="rounded-xl object-contain border-white border"
         />
       ) : (
         <Image

@@ -35,7 +35,7 @@ const Press = async ({ params: { id } }: { params: { id: string } }) => {
             />
           </Link>
 
-          <div className="flex-1 flexStart flex-col gap-1">
+          <div className="flex-1 flexStart flex-col gap-1 text-white">
             <p className="self-start text-lg font-semibold">
               {pressDetails?.strain} - {pressDetails?.type}
             </p>
@@ -56,23 +56,35 @@ const Press = async ({ params: { id } }: { params: { id: string } }) => {
       <section className="mt-14">
         <Image
           src={`${pressDetails?.image}`}
-          className="object-cover rounded-2xl"
+          className="object-cover rounded-2xl border-white border"
           width={1064}
           height={798}
           alt="poster"
         />
       </section>
 
-      <section className="flexCenter flex-col mt-20">
-        <p className="max-w-5xl text-xl font-normal">{pressDetails?.notes}</p>
-        <p className="max-w-5xl text-xl font-normal">
-          Temp: {pressDetails?.temp}
+      <section className="flexCenter flex-col mt-20 text-white">
+        <p className="max-w-5xl text-3xl font-normal">{pressDetails?.notes}</p>
+        <br />
+        <p className="max-w-5xl text-2xl font-normal">
+          <span className="font-bold">Temp:</span> {pressDetails?.temp}
         </p>
-        <p className="max-w-5xl text-xl font-normal">
-          Time: {pressDetails?.time} seconds
+        <p className="max-w-5xl text-2xl font-normal">
+          <span className="font-bold">Time:</span> {pressDetails?.time} seconds
         </p>
-        <p className="max-w-5xl text-xl font-normal">
-          Pressure: {pressDetails?.pressure} psi
+        <p className="max-w-5xl text-2xl font-normal">
+          <span className="font-bold">Pressure:{""} </span>
+          {pressDetails?.pressure} psi
+        </p>
+        <p className="max-w-5xl text-2xl font-normal">
+          <span className="font-bold">Final Weight:{""} </span>
+          {pressDetails?.postWeight} grams
+        </p>
+        <p className="max-w-5xl text-2xl font-normal">
+          <span className="font-bold">Yield:{""} </span>
+          {pressDetails?.preWeight && pressDetails?.postWeight
+            ? (pressDetails.postWeight / pressDetails.preWeight) * 100 + "%"
+            : "N/A"}
         </p>
       </section>
 

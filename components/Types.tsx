@@ -24,8 +24,10 @@ const Types = () => {
             type="button"
             onClick={() => handleTags(filter)}
             className={`${
-              type === filter ? "bg-light-white-300 font-medium" : "font-normal"
-            } px-4 py-3 rounded-lg capitalize whitespace-nowrap`}
+              type === filter
+                ? "bg-light-white-300 font-medium text-black"
+                : "font-normal text-white"
+            } px-4 py-3 border-white border-2 rounded-lg capitalize whitespace-nowrap`}
           >
             {filter}
           </button>

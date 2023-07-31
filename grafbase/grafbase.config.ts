@@ -26,6 +26,8 @@ const Press = g
     time: g.string().optional(),
     temp: g.string().optional(),
     pressure: g.string().optional(),
+    preWeight: g.int().optional(),
+    postWeight: g.int().optional(),
     createdBy: g.relation(() => User),
   })
   .search()
