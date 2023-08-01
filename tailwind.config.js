@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "nav-border": "#EBEAEA",
+        // "nav-border": "#EBEAEA",
+        "nav-border": "#e7e3ed",
         "light-white": "#FAFAFB",
         "light-white-100": "#F1F4F5",
         "light-white-200": "#d7d7d7",
@@ -23,7 +24,9 @@ module.exports = {
         "gray-50": "#D9D9D9",
         green: "#2B4F38",
         purp: "#614344",
-        "light-purp": "#9F87AF",
+
+        "light-purp": "#e7e3ed",
+        "dark-purp": "#47413e",
       },
       boxShadow: {
         menu: "0px 159px 95px rgba(13,12,34,0.01), 0px 71px 71px rgba(13,12,34,0.02), 0px 18px 39px rgba(13,12,34,0.02), 0px 0px 0px rgba(13,12,34,0.02)",

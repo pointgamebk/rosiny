@@ -13,7 +13,7 @@ const Navbar = async () => {
         <Link href="/">
           <Image src="/logo1.svg" width={115} height={43} alt="rosiny" />
         </Link>
-        <ul className="xl:flex hidden text-small gap-7 text-white">
+        <ul className="xl:flex hidden text-small gap-7 text-light-purp">
           {NavLinks.map((link) => (
             <Link href={link.href} key={link.key}>
               {link.text}

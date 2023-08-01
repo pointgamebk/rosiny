@@ -35,7 +35,7 @@ const Press = async ({ params: { id } }: { params: { id: string } }) => {
             />
           </Link>
 
-          <div className="flex-1 flexStart flex-col gap-1 text-white">
+          <div className="flex-1 flexStart flex-col gap-1 text-light-purp">
             <p className="self-start text-lg font-semibold">
               {pressDetails?.strain} - {pressDetails?.type}
             </p>
@@ -56,14 +56,14 @@ const Press = async ({ params: { id } }: { params: { id: string } }) => {
       <section className="mt-14">
         <Image
           src={`${pressDetails?.image}`}
-          className="object-cover rounded-2xl border-white border"
+          className="object-cover rounded-2xl border-light-purp border"
           width={1064}
           height={798}
           alt="poster"
         />
       </section>
 
-      <section className="flexCenter flex-col mt-20 text-white">
+      <section className="flexCenter flex-col mt-20 text-light-purp">
         <p className="max-w-5xl text-3xl font-normal">{pressDetails?.notes}</p>
         <br />
         <p className="max-w-5xl text-2xl font-normal">
@@ -76,10 +76,14 @@ const Press = async ({ params: { id } }: { params: { id: string } }) => {
           <span className="font-bold">Pressure:{""} </span>
           {pressDetails?.pressure} psi
         </p>
-        <p className="max-w-5xl text-2xl font-normal">
-          <span className="font-bold">Final Weight:{""} </span>
-          {pressDetails?.postWeight} grams
-        </p>
+        {pressDetails?.postWeight
+          ? pressDetails?.postWeight > 0 && (
+              <p className="max-w-5xl text-2xl font-normal">
+                <span className="font-bold">Final Weight:{""} </span>
+                {pressDetails?.postWeight} grams
+              </p>
+            )
+          : null}
         <p className="max-w-5xl text-2xl font-normal">
           <span className="font-bold">Yield:{""} </span>
           {pressDetails?.preWeight && pressDetails?.postWeight
