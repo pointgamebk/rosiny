@@ -46,7 +46,7 @@ body {
 }
 
 .modal-head-text {
-  @apply md:text-5xl text-3xl font-extrabold text-left max-w-5xl w-full;
+  @apply md:text-5xl text-3xl font-extrabold text-left max-w-5xl w-full text-light-purp;
 }
 
 .no-result-text {
